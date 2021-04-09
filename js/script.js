@@ -93,5 +93,6 @@ function initVue(){
         }
     })
 }
+// 
 
 document.addEventListener('DOMContentLoaded', initVue);
