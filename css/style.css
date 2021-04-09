@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    background-color: #d9dbd4;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.green{
+    width: 100%;
+    height: 150px;
+    background-color: #009688;
+    position: absolute;
+    z-index: -1;
+}
+
+.container{
+    width: 85%;
+    height: 95%;
+    background-color: white;
+    margin: auto;
+
+    display: flex;
+}
+
+aside{
+    width: 30%;
+    height: 100%;
+    background-color: white;
+}
+
+#conversation{
+    flex-grow: 1;
+    height: 100%;
+    background-color: #f8f9fa;
+}
+
+aside .header{
+    display: flex;
+}
+
+.header{
+    height: 60px;
+    padding: 10px;
+    background-color: #f6f6f6;
+}
+
+.header #search-bar{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 100px;
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.header i{
+    color: darkgray;
+    margin-right: 20px;
+}
+
+.header input{
+    flex-grow: 1;
+    padding: 10px;
+
+    background-color: transparent;
+    border: none;
+}
+
+.chats{
+    display: flex;
+    align-items: center;
+}
+
+.chats .users{
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    background-color: red;
+    border-radius: 50%; 
+}
+
+.users-info{   
+    flex-grow: 1;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-right: 5px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.users-info p{
+    font-size: 20px;
+}
+
+.users-info span{
+    font-size: 15px;
+}
+
+.active-chat,
+.active-chat .header{
+    position: relative;
+}
+
+.active-chat .header{
+    border-left: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+
+.active-chat::before{
+    content: '';
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.06;
+    background-image: url(../img/background.png);
+    background-size: 50%;
+}
+
+.active-chat{
+    width: 100%;
+    height: 100%;
+    background-color: #e5ddd5;
+}
