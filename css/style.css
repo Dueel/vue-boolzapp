@@ -41,17 +41,22 @@ aside{
     background-color: #f8f9fa;
 }
 
-aside .header{
+aside .grey-bar{
     display: flex;
 }
 
-.header{
+.grey-bar{
+    display: flex;
+    align-items: center;
+
     height: 60px;
     padding: 10px;
     background-color: #f6f6f6;
+    border-left: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
 }
 
-.header #search-bar{
+.grey-bar .search-bar{
     display: flex;
     align-items: center;
     background-color: white;
@@ -60,12 +65,17 @@ aside .header{
     padding: 0 20px;
 }
 
-.header i{
-    color: darkgray;
-    margin-right: 20px;
+input:focus{
+    border: none;
 }
 
-.header input{
+.grey-bar i{
+    color: darkgray;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.grey-bar input{
     flex-grow: 1;
     padding: 10px;
 
@@ -106,14 +116,17 @@ aside .header{
     font-size: 15px;
 }
 
-.conversation,
-.conversation .header{
+.conversation{
     position: relative;
 }
 
-.conversation .header{
-    border-left: 1px solid gainsboro;
-    border-bottom: 1px solid gainsboro;
+#type-text i{
+    font-size: 1.3em;
+}
+
+#type-text i:first-child,
+#type-text i:last-child{
+    margin-left: 20px;
 }
 
 .conversation::before{
@@ -132,7 +145,7 @@ aside .header{
 
 .conversation{
     width: 100%;
-    height: 100%;
+    height: calc(100% - 120px);
     background-color: #e5ddd5;
     
 }
@@ -148,6 +161,7 @@ aside .header{
     margin: 20px 0;
     padding: 0.4em;
     border-radius: 10px;
+    z-index: 100;
 }
 
 .text.sent{

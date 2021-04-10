@@ -92,36 +92,36 @@ function initVue(){
                 },
             ],
 
-            // currentUser: 'Hello World',
             currentUserArray: [],
-            arrayObjTest: []
-
+            arrayTest: {},
+            newText: ''
         },
         
 
         methods: {
             
-            findUserTexts: function(userIndex){
+            // findUserTexts: function(userIndex){
 
-                // this.currentUserArray = [],
+            //     this.currentUserArray = this.contacts[userIndex].messages;
                 
-                // currentUser = this.contacts[userIndex].name;                 
+            // },
 
-                // for (var i = 0; i < this.contacts[userIndex].messages.length; i++){
+            functionTest: function(index){
+                
+                this.arrayTest = this.contacts[index];
 
-                //     const currentUserTexts = this.contacts[userIndex].messages[i].text;
-                    
-                //     this.currentUserArray.push(currentUserTexts)
-                // }
+            },
 
-                // console.log(this.currentUserArray);
+            printText: function(){
 
-                //////////////////////////////////////////////////////
+                console.log(this.newText);
+                this.newText = '';
+            },
 
-                this.arrayObjTest = this.contacts[userIndex].messages;
-                console.log(this.contacts[userIndex].messages);
-                console.log(`arraytest: ${this.arrayObjTest}`);
+            testLog: function(userData){
+                console.log(userData);
             }
+            
         },
 
     })
@@ -131,6 +131,17 @@ function initVue(){
 document.addEventListener('DOMContentLoaded', initVue);
 
 
-// this.arrayMsgs.push(infoTexts['text'])
-// const userTexts = infoTexts['text'];
-// console.log(userTexts);
+// this.currentUserArray = [],
+
+// currentUser = this.contacts[userIndex].name;                 
+
+// for (var i = 0; i < this.contacts[userIndex].messages.length; i++){
+
+//     const currentUserTexts = this.contacts[userIndex].messages[i].text;
+    
+//     this.currentUserArray.push(currentUserTexts)
+// }
+
+// console.log(this.currentUserArray);
+
+//////////////////////////////////////////////////////

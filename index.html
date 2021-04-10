@@ -17,15 +17,17 @@
     <div id="app" class="container">
 
         <aside>
-            <div class="header">
-                <div id="search-bar">
+            <!-- input "Search" -->
+            <div class="grey-bar">
+                <div class="search-bar">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
             </div>
 
+            <!-- lista contatti -->
             <ul>
-                <li v-for="(contact, index) in contacts" v-on:click="findUserTexts(index)" class="chats">
+                <li v-for="(contact, index) in contacts" v-on:click="functionTest(index)" v-on:click="findUserTexts(index)" class="chats">
                     <div class="users"></div>
                     <div class="users-info">
                         <p>{{ contact.name }}</p>
@@ -37,21 +39,38 @@
 
         <div id="active-chat">
 
+            <!-- utente selezionato -->
+            <div class="grey-bar">
+                <h2>Sistemare</h2>
+            </div>
+
+            <!-- chat utente selezionato -->
             <div class="conversation">
-                <div class="header">
-                    <h2>{{ findUserTexts }}</h2>
-                </div>
-
                 <div class="texts">
-
-                    <div v-for="text in arrayObjTest" class="text" :class="text.status == 'sent' ? 'sent': 'received'">
-                        {{ text.text }}
+                    <div v-for="(userData, index) in arrayTest.messages" v-on:click="testLog(userData)" class="text" :class="userData.status == 'sent' ? 'sent': 'received'">
+                        {{ userData.text }}
                     </div>
                 </div>
-
             </div>
+
+            <!-- input "Type text" -->
+            <div class="grey-bar" id="type-text">
+                <i class="far fa-grin"></i>
+                <i class="fas fa-paperclip"></i>
+                <div class="search-bar">
+                    <input v-model="newText" v-on:keyup.enter="printText" type="text" placeholder="Scrivi un messaggio">
+                </div>
+                <i class="fas fa-microphone"></i>
+            </div>
+            
         </div>
 
     </div>
 </body>
 </html>
+
+<!-- <div class="texts">
+    <div v-for="text in currentUserArray" class="text" :class="text.status == 'sent' ? 'sent': 'received'">
+        {{ text.text }}
+    </div>
+</div> -->
