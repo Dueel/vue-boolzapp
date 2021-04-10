@@ -25,7 +25,7 @@
             </div>
 
             <ul>
-                <li v-for="contact in contacts" class="chats">
+                <li v-for="(contact, index) in contacts" v-on:click="findUserTexts(index)" class="chats">
                     <div class="users"></div>
                     <div class="users-info">
                         <p>{{ contact.name }}</p>
@@ -35,11 +35,18 @@
             </ul>
         </aside>
 
-        <div id="conversation">
-            
-            <div class="active-chat">
+        <div id="active-chat">
+
+            <div class="conversation">
                 <div class="header">
-                    <h2>Text</h2>
+                    <h2>{{ findUserTexts }}</h2>
+                </div>
+
+                <div class="texts">
+
+                    <div v-for="text in arrayObjTest" class="text" :class="text.status == 'sent' ? 'sent': 'received'">
+                        {{ text.text }}
+                    </div>
                 </div>
 
             </div>
