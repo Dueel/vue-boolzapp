@@ -27,11 +27,19 @@
 
             <!-- lista contatti -->
             <ul>
-                <li v-for="(contact, index) in contacts" v-on:click="functionTest(index)" v-on:click="findUserTexts(index)" class="chats">
-                    <div class="users"></div>
+                <li v-for="(contact, index) in contacts" v-on:click="printUser(index)" class="chats">
+                    <div class="users">
+                        <img :src="contact.avatar" alt="">
+                    </div>
                     <div class="users-info">
-                        <p>{{ contact.name }}</p>
-                        <span>Text</span>
+                        <div class="row">
+                            <p>{{ contact.name }}</p>
+                            <span class="date">{{contact.messages[contact.messages.length - 1].date.slice(0, 10)}}</span>
+                        </div>
+
+                        <div class="row">
+                            <span>{{ contact.messages[contact.messages.length - 1].text }}</span>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -41,16 +49,27 @@
 
             <!-- utente selezionato -->
             <div class="grey-bar">
-                <h2>Sistemare</h2>
+                <div class="row">
+                    <div class="users">
+                        <img :src="activeAvatar" alt="">
+                    </div>
+                    <p>{{ activeChat }}</p>
+                </div>
+                
+                <div id="tools">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
             </div>
 
             <!-- chat utente selezionato -->
             <div class="wa-background">
-                <div class="texts-list">
-                    <div v-for="(userData, index) in arrayTest.messages" class="text" :class="userData.status == 'sent' ? 'sent': 'received'">
+                <ul class="texts-list">
+                    <li v-for="(userData, index) in currentUserArray.messages" class="text" :class="userData.status == 'sent' ? 'sent': 'received'">
                         {{ userData.text }}
-                    </div>
-                </div>
+                        <span class="text-date">{{ userData.date.slice(-8, -3) }}</span>
+                    </li>
+                </ul>
             </div>
 
             <!-- input "Type text" -->
@@ -60,7 +79,7 @@
                 <div class="search-bar">
                     <input v-model="newText" v-on:keyup.enter="printText" type="text" placeholder="Scrivi un messaggio">
                 </div>
-                <i class="fas fa-microphone"></i>
+                <i class="fas fa-arrow-right" v-on:click="printText"></i>
             </div>
 
         </div>
@@ -76,7 +95,6 @@
 </div> -->
 
 <!-- TO DO 
-- div.text .sent/.received => <li></li> ?
-- inserire data all'interno di div.text 
+- sistemare scroll verticale
 - pulizia codice
 -->

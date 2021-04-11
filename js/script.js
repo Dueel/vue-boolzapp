@@ -9,7 +9,7 @@ function initVue(){
             contacts: [
                 {
                     name: 'Michele',
-                    avatar: '_1',
+                    avatar: 'img/_1.jpeg',
                     visible: true,
                     messages: [
                         {
@@ -31,7 +31,7 @@ function initVue(){
                 },
                 {
                     name: 'Fabio',
-                    avatar: '_2',
+                    avatar: 'img/_2.jpeg',
                     visible: true,
                     messages: [
                         {
@@ -53,7 +53,7 @@ function initVue(){
                 },
                 {
                     name: 'Samuele',
-                    avatar: '_3',
+                    avatar: 'img/_3.jpeg',
                     visible: true,
                     messages: [
                         {
@@ -75,7 +75,7 @@ function initVue(){
                 },
                 {
                     name: 'Luisa',
-                    avatar: '_4',
+                    avatar: 'img/_4.jpg',
                     visible: true,
                     messages: [
                         {
@@ -93,68 +93,51 @@ function initVue(){
             ],
 
             currentUserArray: [],
-            arrayTest: [],
+            activeChat: '',
+            activeAvatar: '',
             newText: ''
         },
         
-
         methods: {
             
-            // findUserTexts: function(userIndex){
-
-            //     this.currentUserArray = this.contacts[userIndex].messages;
+            printUser: function(index){
                 
-            // },
-
-            functionTest: function(index){
-                
-                this.arrayTest = this.contacts[index];
+                this.currentUserArray = this.contacts[index];
+                this.activeChat = this.contacts[index].name;
+                this.activeAvatar = this.contacts[index].avatar;
             },
 
-            sentBack: function(){
+            printReply: function(){
 
-                this.arrayTest.messages.push({
+                this.currentUserArray.messages.push({
                     
+                    date: '11/04/2021 20:30:00',
                     text: 'ok',
                     status: 'received'
                 });
             },
-
+            
             printText: function(){
-
+                
                 if (this.newText.length > 0){
-
-                    this.arrayTest.messages.push({
+                    
+                    this.currentUserArray.messages.push({
                         
+                        date: '11/04/2021 20:30:00',
                         text: this.newText,
                         status: 'sent'
                     })
                     
-                    setTimeout(this.sentBack, 1000)
+                    setTimeout(this.printReply, 1000)
                 };
 
                 this.newText = '';
-            },
-            
-        },
+            }
+
+        }
     })
 }
 
 
 document.addEventListener('DOMContentLoaded', initVue);
 
-
-// this.currentUserArray = [],
-
-// currentUser = this.contacts[userIndex].name;                 
-
-// for (var i = 0; i < this.contacts[userIndex].messages.length; i++){
-
-//     const currentUserTexts = this.contacts[userIndex].messages[i].text;
-    
-//     this.currentUserArray.push(currentUserTexts)
-// }
-
-// console.log(this.currentUserArray);
-
-//////////////////////////////////////////////////////

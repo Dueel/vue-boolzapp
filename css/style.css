@@ -62,6 +62,10 @@ aside{
     background-size: 50%;
 }
 
+ul li{
+    list-style: none;
+}
+
 /*********** layout end ***********/
 /**********************************/
 
@@ -71,6 +75,7 @@ aside .grey-bar{
 
 .grey-bar{
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     height: 60px;
@@ -109,11 +114,15 @@ aside .grey-bar{
     cursor: pointer;
 }
 
-.chats .users{
+.users{
     width: 50px;
     height: 50px;
     margin: 15px;
-    background-color: red;
+    border-radius: 50%; 
+}
+
+.users img{
+    max-width: 100%;
     border-radius: 50%; 
 }
 
@@ -121,6 +130,7 @@ aside .grey-bar{
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     flex-grow: 1;
     align-self: stretch;
 
@@ -128,21 +138,42 @@ aside .grey-bar{
     border-bottom: 1px solid gainsboro;
 }
 
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.grey-bar .row{
+    align-items: center;
+}
+
 .users-info p{
     font-size: 20px;
 }
 
-.users-info span{
+span{
     font-size: 15px;
+    color: grey;
+}
+
+span.date{
+    font-size: 13px;
+}
+
+span.text-date{
+    font-size: 12px;
+    margin-left: 20px;
 }
 
 #type-text i{
-    font-size: 1.3em;
+    font-size: 1.4em;
+    margin-left: 20px;
 }
 
-#type-text i:first-child,
-#type-text i:last-child{
-    margin-left: 20px;
+#type-text i.fa-paperclip{
+    font-size: 1.3em;
+    margin-left: 0;
 }
 
 .texts-list{
@@ -154,7 +185,7 @@ aside .grey-bar{
 .text{
     width: fit-content;
     margin: 20px 0;
-    padding: 0.4em;
+    padding: 0.4em 0.6em;
     border-radius: 10px;
     z-index: 100;
 }
