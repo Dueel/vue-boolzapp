@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="green"></div>
+    <div id="green-bar"></div>
     <div id="app" class="container">
 
         <aside>
@@ -45,9 +45,9 @@
             </div>
 
             <!-- chat utente selezionato -->
-            <div class="conversation">
-                <div class="texts">
-                    <div v-for="(userData, index) in arrayTest.messages" v-on:click="testLog(userData)" class="text" :class="userData.status == 'sent' ? 'sent': 'received'">
+            <div class="wa-background">
+                <div class="texts-list">
+                    <div v-for="(userData, index) in arrayTest.messages" class="text" :class="userData.status == 'sent' ? 'sent': 'received'">
                         {{ userData.text }}
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                 </div>
                 <i class="fas fa-microphone"></i>
             </div>
-            
+
         </div>
 
     </div>
@@ -74,3 +74,9 @@
         {{ text.text }}
     </div>
 </div> -->
+
+<!-- TO DO 
+- div.text .sent/.received => <li></li> ?
+- inserire data all'interno di div.text 
+- pulizia codice
+-->

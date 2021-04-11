@@ -93,7 +93,7 @@ function initVue(){
             ],
 
             currentUserArray: [],
-            arrayTest: {},
+            arrayTest: [],
             newText: ''
         },
         
@@ -109,21 +109,34 @@ function initVue(){
             functionTest: function(index){
                 
                 this.arrayTest = this.contacts[index];
+            },
 
+            sentBack: function(){
+
+                this.arrayTest.messages.push({
+                    
+                    text: 'ok',
+                    status: 'received'
+                });
             },
 
             printText: function(){
 
-                console.log(this.newText);
+                if (this.newText.length > 0){
+
+                    this.arrayTest.messages.push({
+                        
+                        text: this.newText,
+                        status: 'sent'
+                    })
+                    
+                    setTimeout(this.sentBack, 1000)
+                };
+
                 this.newText = '';
             },
-
-            testLog: function(userData){
-                console.log(userData);
-            }
             
         },
-
     })
 }
 
