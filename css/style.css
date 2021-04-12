@@ -154,8 +154,8 @@ aside .alert .white-bg{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
 
-    width: 100%;
     text-align: center;
     background-color: #f8f9fa;
     border-left: 1px solid gainsboro;
@@ -236,7 +236,7 @@ aside .alert .white-bg{
 .row{
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .grey-bar .row{
@@ -253,6 +253,7 @@ span{
 }
 
 span.date{
+    margin-right: 10px;
     font-size: 13px;
 }
 
