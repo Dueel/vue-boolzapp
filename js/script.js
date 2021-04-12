@@ -9,7 +9,7 @@ function initVue(){
             contacts: [
                 {
                     name: 'Michele',
-                    avatar: 'img/_1.jpeg',
+                    avatar: '_1',
                     visible: true,
                     messages: [
                         {
@@ -31,7 +31,7 @@ function initVue(){
                 },
                 {
                     name: 'Fabio',
-                    avatar: 'img/_2.jpeg',
+                    avatar: '_2',
                     visible: true,
                     messages: [
                         {
@@ -53,7 +53,7 @@ function initVue(){
                 },
                 {
                     name: 'Samuele',
-                    avatar: 'img/_3.jpeg',
+                    avatar: '_3',
                     visible: true,
                     messages: [
                         {
@@ -75,7 +75,7 @@ function initVue(){
                 },
                 {
                     name: 'Luisa',
-                    avatar: 'img/_4.jpg',
+                    avatar: '_4',
                     visible: true,
                     messages: [
                         {
@@ -93,9 +93,12 @@ function initVue(){
             ],
 
             currentUserArray: [],
+
             activeChat: '',
             activeAvatar: '',
-            newText: ''
+
+            typeText: '',
+            typeSearch: '',
         },
         
         methods: {
@@ -104,7 +107,7 @@ function initVue(){
                 
                 this.currentUserArray = this.contacts[index];
                 this.activeChat = this.contacts[index].name;
-                this.activeAvatar = this.contacts[index].avatar;
+                this.activeAvatar = 'img/' + this.contacts[index].avatar + '.jpeg';
             },
 
             printReply: function(){
@@ -119,23 +122,23 @@ function initVue(){
             
             printText: function(){
                 
-                if (this.newText.length > 0){
+                if (this.typeText.length > 0){
                     
                     this.currentUserArray.messages.push({
                         
                         date: '11/04/2021 20:30:00',
-                        text: this.newText,
+                        text: this.typeText,
                         status: 'sent'
-                    })
+                    });
                     
-                    setTimeout(this.printReply, 1000)
+                    setTimeout(this.printReply, 1000);
                 };
 
-                this.newText = '';
-            }
+                this.typeText = '';
+            },
 
-        }
-    })
+        },
+    });
 }
 
 

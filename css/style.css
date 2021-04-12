@@ -73,6 +73,41 @@ aside .grey-bar{
     display: flex;
 }
 
+aside .alert{
+    display: flex;
+    padding: 25px 0;
+    background-color: #9de1fe;
+}
+
+aside .alert .white-bg{
+    width: 50px;
+    height: 50px;
+    margin: 0 20px;
+    border-radius: 50%;
+    background-color: white;
+
+    font-size: 20px;
+    color: #9de1fe;
+    position: relative;
+}
+
+.white-bg i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.alert div:last-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.alert div:last-child i{
+    font-size: 0.8em;
+}
+
 .grey-bar{
     display: flex;
     justify-content: space-between;
@@ -114,6 +149,10 @@ aside .grey-bar{
     cursor: pointer;
 }
 
+.chats:hover{
+    background-color: #f6f6f6;
+}
+
 .users{
     width: 50px;
     height: 50px;
@@ -135,7 +174,7 @@ aside .grey-bar{
     align-self: stretch;
 
     margin-right: 5px;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 2px solid #f6f6f6;
 }
 
 .row{
@@ -162,6 +201,7 @@ span.date{
 }
 
 span.text-date{
+    width: 30px;
     font-size: 12px;
     margin-left: 20px;
 }
@@ -188,6 +228,23 @@ span.text-date{
     padding: 0.4em 0.6em;
     border-radius: 10px;
     z-index: 100;
+}
+
+.text i{
+    display: none;
+    color: grey;
+    font-size: 0.8em;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.text:hover i{
+    display: inline-block;
+    width: 28px;
+}
+
+.text:hover .text-date{
+    display: none;
 }
 
 .text.sent{
