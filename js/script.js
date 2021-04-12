@@ -94,6 +94,7 @@ function initVue(){
 
             currentUserArray: [],
 
+            activeIndex: -1,
             activeChat: '',
             activeAvatar: '',
 
@@ -108,6 +109,8 @@ function initVue(){
                 this.currentUserArray = this.contacts[index];
                 this.activeChat = this.contacts[index].name;
                 this.activeAvatar = 'img/' + this.contacts[index].avatar + '.jpeg';
+                this.activeIndex = index;
+                console.log(this.activeIndex);
             },
 
             printReply: function(){
@@ -136,6 +139,10 @@ function initVue(){
 
                 this.typeText = '';
             },
+
+            delText: function(index){
+                this.currentUserArray.messages.splice(index, 1)
+            }
 
         },
     });

@@ -66,6 +66,12 @@ ul li{
     list-style: none;
 }
 
+a{
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /*********** layout end ***********/
 /**********************************/
 
@@ -143,6 +149,52 @@ aside .alert .white-bg{
     border: none;
 }
 
+#default-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-left: 1px solid gainsboro;
+    border-bottom: 5px solid #4adf83;
+}
+
+#default-page img{
+    max-width: 250px;
+    margin-bottom: 40px;
+}
+
+#default-page h2{
+    font-weight: 300;
+    font-size: 2em;
+    margin-bottom: 20px;
+
+}
+
+#default-page p{
+    max-width: 500px;
+    color: gray;
+}
+
+#default-page a{
+    display: inline-block;
+    color: #4adf83;
+}
+
+#default-page hr{
+    width: 500px;
+    border-bottom: 0.5px solid #e5e5e6;
+    margin: 30px 0;
+    opacity: 0.2;
+}
+
+#default-page p i{
+    margin-right: 10px;
+}
+
 .chats{
     display: flex;
     align-items: center;
@@ -151,6 +203,10 @@ aside .alert .white-bg{
 
 .chats:hover{
     background-color: #f6f6f6;
+}
+
+.active{
+    background-color: #ebebeb;
 }
 
 .users{
@@ -241,6 +297,11 @@ span.text-date{
 .text:hover i{
     display: inline-block;
     width: 28px;
+    position: relative;
+}
+
+.text i:hover .menu{
+    display: block;
 }
 
 .text:hover .text-date{
@@ -255,4 +316,23 @@ span.text-date{
 .text.received{
     align-self: flex-start;
     background-color: white;
+}
+
+.menu{
+    display: none;
+    width: max-content;
+    padding: 18px 20px;
+    background-color: white;
+
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    color: grey;
+    text-align: left;
+    
+    position: absolute;
+    right: 0;
+}
+
+.menu a:first-child{
+    margin-bottom: 15px;
 }

@@ -48,7 +48,12 @@
 
             <!-- contacts list -->
             <ul>
-                <li class="chats" v-for="(contact, index) in contacts" v-on:click="printUser(index)" v-if="contact.name.toLowerCase().includes(typeSearch)">
+                <li
+                :class="index == activeIndex ? 'active' : ''"
+                class="chats" 
+                v-on:click="printUser(index)" 
+                v-for="(contact, index) in contacts" 
+                v-if="contact.name.toLowerCase().includes(typeSearch)">
                     <div class="users">
                         <img :src="'img/' + contact.avatar + '.jpeg'" alt="">
                     </div>
@@ -68,7 +73,7 @@
             </ul>
         </aside>
 
-        <div id="active-chat">
+        <div id="active-chat" v-if="activeIndex != -1">
 
             <!-- selected user -->
             <div class="grey-bar">
@@ -91,11 +96,17 @@
                     <li v-for="(userData, index) in currentUserArray.messages" class="text" :class="userData.status == 'sent' ? 'sent': 'received'">
                         {{ userData.text }}
                         <span class="text-date">{{ userData.date.slice(-8, -3) }}</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down">
+
+                            <div class="menu">
+                                <a>Message info</a>
+                                <a v-on:click="delText(index)">Delete message</a>
+                            </div>
+                        </i>
                     </li>
                 </ul>
             </div>
-
+            
             <!-- input "Type text" -->
             <div class="grey-bar" id="type-text">
                 <i class="far fa-grin"></i>
@@ -105,7 +116,14 @@
                 </div>
                 <i class="fas fa-arrow-right" v-on:click="printText"></i>
             </div>
+        </div>
 
+        <div v-else id="default-page">
+            <img src="img/default-page.jpg">
+            <h2>Mantieni il telefono connesso</h2>
+            <p>WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</p>
+            <hr>
+            <p><i class="fas fa-laptop"></i>WhatsApp è disponibile per Windows. <a href="">Scaricala qui.</a></p>
         </div>
 
     </div>
@@ -113,13 +131,9 @@
 </html>
 
 
-<!-- v-if="typeSearch == contact.name" -->
 
 <!-- TO DO 
 - sistemare data messaggio inviato e risposta
 - sistemare scroll verticale
 - pulizia codice
-
-- hover users
-- cancella messaggio
 -->
