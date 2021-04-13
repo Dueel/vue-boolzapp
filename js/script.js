@@ -134,7 +134,7 @@ function initVue(){
 
                 this.contacts[index].messages.push({
                     
-                    date: '11/04/2021 20:30:00',
+                    date: `${dayjs().format("DD/MM/YYYY")} ${dayjs().format("HH:mm:ss")}`,
                     text: 'ok',
                     status: 'received'
                 });
@@ -146,7 +146,7 @@ function initVue(){
                     
                     this.currentUserArray.messages.push({
                         
-                        date: '11/04/2021 20:30:00',
+                        date: `${dayjs().format("DD/MM/YYYY")} ${dayjs().format("HH:mm:ss")}`,
                         text: this.typeText,
                         status: 'sent'
                     });
@@ -168,6 +168,7 @@ function initVue(){
             }
 
         },
+
     });
 }
 
