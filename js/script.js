@@ -110,12 +110,29 @@ function initVue(){
                 this.activeChat = this.contacts[index].name;
                 this.activeAvatar = 'img/' + this.contacts[index].avatar + '.jpeg';
                 this.activeIndex = index;
-                console.log(this.activeIndex);
             },
 
-            printReply: function(){
+            funTest: function() {
 
-                this.currentUserArray.messages.push({
+                const arrayTest = [];
+
+                for ( let i = 0; i < this.contacts.length; i++){
+
+                    const current = this.contacts[i];
+
+                    if (current.name.toLowerCase().includes(this.typeSearch.toLowerCase())){
+
+                        arrayTest.push(current)
+                    };
+                };
+
+                return arrayTest
+
+            },
+
+            printReply: function(index){
+
+                this.contacts[index].messages.push({
                     
                     date: '11/04/2021 20:30:00',
                     text: 'ok',
@@ -133,14 +150,20 @@ function initVue(){
                         text: this.typeText,
                         status: 'sent'
                     });
+
+                    const replyIndex = this.activeIndex;
                     
-                    setTimeout(this.printReply, 1000);
+                    setTimeout(() => {
+
+                        this.printReply(replyIndex)
+                    }, 1000);
                 };
 
                 this.typeText = '';
             },
 
             delText: function(index){
+
                 this.currentUserArray.messages.splice(index, 1)
             }
 

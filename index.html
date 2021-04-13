@@ -52,8 +52,8 @@
                 :class="index == activeIndex ? 'active' : ''"
                 class="chats" 
                 v-on:click="printUser(index)" 
-                v-for="(contact, index) in contacts" 
-                v-if="contact.name.toLowerCase().includes(typeSearch)">
+                v-for="(contact, index) in funTest()" 
+                >
                     <div class="users">
                         <img :src="'img/' + contact.avatar + '.jpeg'" alt="">
                     </div>
@@ -135,5 +135,9 @@
 <!-- TO DO 
 - sistemare data messaggio inviato e risposta
 - sistemare scroll verticale
+
 - pulizia codice
+
 -->
+
+<!-- v-if="contact.name.toLowerCase().includes(typeSearch)" -->

@@ -45,11 +45,12 @@ aside{
     height: calc(100% - 120px);
     background-color: #e5ddd5;
     position: relative;
+    overflow-y: scroll;
+
 }
 
 .wa-background::before{
     content: '';
-    content: ' ';
     display: block;
     position: absolute;
     left: 0;
